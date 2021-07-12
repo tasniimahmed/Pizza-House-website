@@ -21,7 +21,7 @@ class PizzaController extends Controller
       /**getting the data from the db from the model**/
       //$pizzas = pizza::all();
       //$pizzas = pizza::orderBy('name', 'desc')->get();
-      $pizzas = pizza::where('type' , 'hawaii')->get();
+      $pizzas = pizza::all();
     
     /* ROUTING */
     //accessing query parameters
@@ -65,4 +65,11 @@ class PizzaController extends Controller
     
     
       }
+    //this id is passed from the html form , this form will call the delete req which calls the destroy action
+    public function destroy($id) {
+        echo $id;
+        $pizza= pizza::findorfail($id);
+        $pizza->delete();
+        return redirect('/pizzas');
+    }
 }

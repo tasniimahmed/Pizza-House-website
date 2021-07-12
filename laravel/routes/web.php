@@ -31,3 +31,6 @@ Route::get('/pizzas/{id}','PizzaController@show' );
 
 //post
 Route::post('/pizzas', 'PizzaController@store');
+
+//delete
+Route::delete('/pizzas/{id}', 'PizzaController@destroy');
